@@ -68,23 +68,33 @@ class Window(QWidget):
         mini_btn_y = self.top_margin
         self.mini_btn.move(mini_btn_x, mini_btn_y)
 
-    def mousePressEvent(self, QMouseEvent):
+    def mousePressEvent(self, evt):
         #判定点击的是否是鼠标左键
-        #在此处设计一个标记，用作判定是否需要移动
-        #一个是整个窗口的原始坐标点
-        #鼠标按下的点
-        pass
+        if evt.button()==Qt.LeftButton:
+            #在此处设计一个标记，用作判定是否需要移动
+            self.flag_move=True
+            #一个是整个窗口的原始坐标点
+            self.window_x=self.x()
+            self.window_y=self.y()
+            #鼠标按下的点
+            self.mouse_x=evt.globalX()
+            self.mouse_y=evt.globalY()
 
-    def mouseMoveEvent(self, QMouseEvent):
+    def mouseMoveEvent(self, evt):
         # if 窗口的移动标记==True
             #根据鼠标按下的点，计算移动向量
             #根据移动量，和窗口的原始坐标=新的坐标
             #移动整个窗口的位置
-        pass
+        if self.flag_move==True:
+            self.move_x=evt.globalX()-self.mouse_x
+            self.move_y=evt.globalY()-self.mouse_y
+            value_x=self.window_x+self.move_x
+            value_y=self.window_y+self.move_y
+            self.move(value_x,value_y)
 
     def mouseReleaseEvent(self, QMouseEvent):
         #把这个标记，进行重置 False
-        pass
+        self.flag_move=False
 app=QApplication(sys.argv)
 
 window=Window()
