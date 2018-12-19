@@ -10,16 +10,23 @@ app=QApplication(sys.argv)
 #2.1 创建控件
 window=QWidget()
 #2.2 设置控件
-window.setWindowTitle("掩码")
+window.setWindowTitle("")
 window.resize(500,500)
 
-le=QLineEdit(window)
+le_1=QLineEdit(window)
 
-#设置掩码
-#总共输入5位字符，左边2（必须是大写字母）-右边2（必须是一个数字）
-# le.setInputMask(">AA-99")
-le.setInputMask(">AA-99;#")   #意为，如果没输入，以井号键显示。也可以不用#用其他字符
 
+le_2=QLineEdit(window)
+le_2.move(0,100)
+
+btn=QPushButton("点击",window)
+btn.move(200,0)
+
+def cao():
+    print(le_2.isModified())        #查看是否被编辑的状态
+    le_2.setModified(False)         #设置被编辑状态为False
+
+btn.clicked.connect(cao)
 
 #2.3 显示控件
 window.show()
