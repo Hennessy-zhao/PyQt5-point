@@ -20,7 +20,14 @@ class Demo(QWidget):
         btn.clicked.connect(self.btn_test)
 
     def btn_test(self):
-        self.guangbiao_insert()
+        #光标插入
+        # self.guangbiao_insert()
+
+        #设置格式合并
+        # self.geshi_shezhihebing()
+
+        #内容格式获取
+        self.huoqu_neironggeshi()
 
     #光标插入内容
     def guangbiao_insert(self):
@@ -90,6 +97,7 @@ class Demo(QWidget):
         '''
 
         '''插入文本块（段落）'''
+        '''
         tc=self.text.textCursor()
         tc.insertBlock()            #插入一个空的文本块
         self.text.setFocus()
@@ -105,6 +113,85 @@ class Demo(QWidget):
         tcf.setFontPointSize(20)
         # tc.insertBlock(tbf)            #设置文本块格式
         tc.insertBlock(tbf,tcf)            #设置文本块格式 和 文本格式
+        '''
+
+        '''插入框架'''
+        tc=self.text.textCursor()
+        tff=QTextFrameFormat()
+        tff.setBorder(10)
+        tff.setBorderBrush(QColor(100,50,50))
+        tff.setRightMargin(50)
+        tc.insertFrame(tff)                 #插入一个框架
+
+        doc=self.text.document()            #框架里面再做一些事情
+        root_frame=doc.rootFrame()
+        root_frame.setFrameFormat(tff)
+
+    '''设置和合并格式'''
+    def geshi_shezhihebing(self):
+        tc=self.text.textCursor()
+
+        '''设置要格式化的当前块（或选择中包含的所有块）的块char 格式'''
+        '''
+        tcf=QTextCharFormat()
+        tcf.setFontFamily("幼圆")
+        tcf.setFontPointSize(20)
+        tcf.setFontOverline(True)       #上划线
+        tcf.setFontUnderline(True)      #下划线
+        tc.setBlockCharFormat(tcf)
+        '''
+
+
+        '''设置当前块的块格式（或选择中包含的所有块）以进行格式化'''
+        '''
+        tbf=QTextBlockFormat()
+        tbf.setIndent(3)            #缩进
+        tbf.setAlignment(Qt.AlignCenter)        #中间对齐
+        tc.setBlockFormat(tbf)
+        '''
+
+
+        '''将光标的当前字符格式设置为给定格式。如果光标有选择，则给定格式应用于当前选择'''
+        '''
+        tcf = QTextCharFormat()
+        tcf.setFontFamily("幼圆")
+        tcf.setFontPointSize(20)
+        tcf.setFontOverline(True)  # 上划线
+        tcf.setFontUnderline(True)  # 下划线
+        tc.setBlockCharFormat(tcf)
+        tc.setCharFormat(tcf)
+        '''
+
+
+        '''合并当前字符格式'''
+        tbf=QTextCharFormat()
+        tbf.setFontStrikeOut(True)          #设置删除线
+        tc.mergeCharFormat(tbf)
+
+    '''内容和格式获取'''
+    def huoqu_neironggeshi(self):
+        tc=self.text.textCursor()
+
+        #获取光标所在的文本块
+        # print(tc.block().text())            #QTextBlock
+
+        #获取光标所在的文本块编号
+        # print(tc.blockNumber())
+
+        #获取当前所在的文本列表
+
+        #先创建一个文本列表
+        # tlf = QTextListFormat()
+        # tlf.setIndent(3)  # 缩进
+        # tlf.setNumberPrefix("<<")  # 前缀     前缀和后缀只有在下面style设置为数字的时候才会显示
+        # tlf.setNumberSuffix(">>")  # 后缀
+        # tlf.setStyle(QTextListFormat.ListDecimal)
+        # tl = tc.createList(tlf)
+
+        print(tc.currentList())             #没有则为None
+
+
+
 
 if __name__=='__main__':
     app=QApplication(sys.argv)
