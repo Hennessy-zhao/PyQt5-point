@@ -1,4 +1,10 @@
 # -*- coding:UTF-8 -*-
+
+'''
+
+文本光标的内容没有看完，内容太多太杂乱了
+
+'''
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
