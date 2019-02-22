@@ -22,6 +22,19 @@ class Demo(QWidget):
         test_btn.setText("按钮")
         test_btn.clicked.connect(self.btn_test)
 
+        #展示行号
+        line_num_parent=QWidget(self)
+        line_num_parent.resize(30,300)
+        line_num_parent.move(70,100)
+        line_num_parent.setStyleSheet("background-color:cyan")
+
+        self.line_label=QLabel(line_num_parent)
+        self.line_label.move(0,5)
+
+        line_nums="\n".join([str(i) for i in range(1,101)])
+        self.line_label.setText(line_nums)
+        self.line_label.adjustSize()
+
     def btn_test(self):
         self.信号操作()
 
@@ -33,6 +46,8 @@ class Demo(QWidget):
         # doc.setModified(False)      #改变编辑状态
 
         self.pte.blockCountChanged.connect(lambda val:print("块的个数发生了改变",val))
+
+        self.pte.updateRequest.connect(lambda rect,dy:self.line_label.move(self.line_label.x(),self.line_label.y()+dy))
 
 if __name__=='__main__':
     app=QApplication(sys.argv)
