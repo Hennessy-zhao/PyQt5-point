@@ -1,0 +1,13 @@
+*{
+    background-color:grey;
+}
+
+QWidget{
+    background-color:blue;
+}
+
+
+.QPushButton{
+    background-color:cyan;
+}
+

@@ -1,0 +1,12 @@
+QLabel#lab1{
+    background-color:grey;
+}
+
+QLabel#lab1:hover{
+    background-color:orange;
+}
+
+QPushButton#b2{
+    background-color:cyan;
+    border:6px dotted yellow;
+}
