@@ -1,0 +1,61 @@
+QPushButton{
+    color: qlineargradient(x1:0, y1:0, x2:1, y2:1,stop:0 white, stop: 0.4 red, stop:1 black);
+    border:2px solid red;
+    border-top-left-radius:50%;
+    border-top-right-radius:50%;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px
+}
+
+QPushButton:hover{
+    color: qlineargradient(x1:0, y1:0, x2:1, y2:1,stop:0 white, stop: 0.4 green, stop:1 black);
+    border:5px dotted green;
+    border-top-left-radius:50%;
+    border-top-right-radius:50%;
+    border-bottom-left-radius:10px;
+    border-bottom-right-radius:10px
+}
+
+QPushButton:pressed{
+    font-size: 26px;
+    border:10px double orange;
+    border-radius: 30px;
+    border-top-right-radius:4px
+}
+
+QRadioButton {
+    padding-left: 10px;
+    spacing: 60px;
+    color: red;
+    font-size: 20px;
+    border: 1px double red;
+    border-radius: 40px;
+}
+QRadioButton::indicator {
+    width: 35px;
+    height: 30px;
+}
+QRadioButton::indicator::unchecked {
+    image: url(../images/close_pic.png);
+}
+QRadioButton::indicator::checked {
+    image: url(../images/open_pic.png);
+}
+
+QLineEdit {
+    border: 6px solid rgb(41, 57, 85);
+    border-radius: 10px;
+    background: white;
+    selection-background-color: green;
+    selection-color:red;
+    font-size: 14px ;
+}
+QLineEdit[echoMode="2"] {
+    lineedit-password-character: 65;
+}
+QLineEdit[readOnly="true"] {
+    background-color: gray;
+}
+QLineEdit:hover {
+    border: 1px solid blue;
+}

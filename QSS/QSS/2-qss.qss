@@ -2,7 +2,7 @@
     background-color:grey;
 }
 
-QWidget{
+QWidget#box2>QLabel{
     background-color:blue;
 }
 
@@ -11,3 +11,33 @@ QWidget{
     background-color:cyan;
 }
 
+#pink{
+    background-color:pink;
+}
+
+#b1,#b2{
+    background-color:green
+}
+
+
+
+.QLabel[notice_level='error']{
+    border:3px solid red;
+}
+
+.QLabel[notice_level='warning']{
+    border:3px solid yellow;
+}
+
+QCheckBox::indicator{
+    width:40px;
+    height:40px;
+}
+
+QCheckBox::indicator:checked{
+    image:url(../images/2.png);
+}
+
+QCheckBox::indicator:unchecked{
+    image:url(../images/1.png);
+}

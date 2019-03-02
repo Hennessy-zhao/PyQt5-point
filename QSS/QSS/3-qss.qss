@@ -1,0 +1,49 @@
+QWidget:focus{
+    border:1px dashed green;
+}
+
+QWidget:!focus{
+    border:1px dashed blue;
+}
+
+QWidget:disabled{
+    background-color:orange;
+    font-size:26px;
+}
+
+QWidget:enabled{
+    background-color:lightgrey;
+    font-size:16px;
+}
+
+QPushButton:hover{
+    border:2px solid red;
+}
+
+
+QPushButton:pressed{
+    border:2px solid green;
+}
+
+
+QCheckBox::indicator{
+    width:40px;
+    height:40px;
+}
+
+QCheckBox:checked:hover{
+    background-color:red
+}
+
+QCheckBox::indicator:checked{
+    image:url(../images/2.png)
+}
+
+QCheckBox::indicator:indeterminate{
+    image:url(../images/cusor.png)
+}
+
+QCheckBox::indicator:unchecked{
+    image:url(../images/1.png)
+}
+
