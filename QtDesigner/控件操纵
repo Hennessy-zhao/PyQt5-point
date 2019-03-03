@@ -1,0 +1,3 @@
+#级别（谁先谁后）    右键：send to back(front)
+
+#控件类型提升     右键 promote to     写一个类，文件名Custom_widget     提升部分，第二行填要提升的类名，第三行填文件名Custom_widget
